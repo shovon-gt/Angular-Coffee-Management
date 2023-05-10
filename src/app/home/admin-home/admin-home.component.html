@@ -1,0 +1,140 @@
+<div id="modal"></div>
+<div class="container1">
+    <div class="box1">
+      <div id="logout">
+        <button id="logoutbutton" nbButton status="danger" (click)="handleLogout()">Logout</button>
+      </div>
+      <h2 class="dashboard">Dashboard</h2>
+      <div class="p">
+        <a href="">Acme crop </a>
+        <a href=""> > Transaction</a>
+      </div>
+    </div>
+    <div class="box2">
+      <!-- <app-search (searchTextChanged)="onSearchtextEntered($event)"></app-search> -->
+    </div>
+    <div class="box3">
+        <h1>All the Register users are here.</h1>
+        <p>An overview of all your transactions over the year.</p>
+      
+    </div>
+    <table id="employees" class="table table-striped">  
+      <thead>  
+          <tr>  
+            <th>ID</th>  
+            <th>Name</th>  
+            <th>Email</th>  
+            <th>Team</th>  
+            <th>Balance</th>
+            <th>Staff Status</th>
+            <th>Action</th>
+          </tr>  
+      </thead>  
+      <tbody>  
+        <tr *ngFor="let student of data">  
+          <td>{{ student.id }}</td>  
+          <td>{{ student.username }}</td>  
+          <td>{{ student.email }}</td>  
+          <td>{{ student.team }}</td> 
+          <td>{{ student.balance }}</td> 
+          <td> {{student.is_staff}} </td>
+          <td>
+            <!-- <button (click)="openModal(content)">open modal</button> -->
+            <button class="btn btn-warning editButton" nbButton status="info" (click)="handleEdit(content, student.id)">Edit</button>
+            <button class="btn btn-danger" nbButton status="primary" (click)="handleRemoveValue(student.id)">-15</button>
+            <button class="btn btn-primary" nbButton status="warning" (click)="handleRemoveUser(student.id)">Delete</button>
+          </td>
+        </tr>  
+      </tbody>  
+    </table>  
+    <hr>
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+        <button
+          type="button"
+          class="btn-close"
+          aria-label="Close"
+          (click)="modal.dismiss('Cross click')"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="myForm"  method="post">
+          <div class="mb-4 input-item">
+            <label for="name" class="form-label">Username</label>
+            <input
+              required
+              name="username"
+              type="text"
+              id="name"
+              placeholder="Enter Name"
+              class="form-control"
+              formControlName="username"
+              value="${user.name}"
+              
+            />
+          </div>
+          <div class="mb-4 input-item">
+            <label for="email" class="form-label">Email</label>
+            <input
+              required
+              name="email"
+              type="email"
+              id="email"
+              placeholder="Enter Email"
+              class="form-control"
+              formControlName="email"
+              value="${user.email}"
+            />
+          </div>
+          <div class="mb-4 dropdown">
+            <label for="team" class="form-label padding">Team</label>
+            <div class="dropdown-form" >
+              <select formControlName="team" id="myList" name="team">
+                <option>SED</option>
+                <option>BCL</option>
+                <option>HR</option>
+                <option>SALES</option>
+              </select>
+            </div>
+          </div>
+          <div class="mb-4 input-item">
+            <label for="address" class="form-label">Balance</label>
+            <input
+              required
+              name="balance"
+              type="text"
+              placeholder="Enter Balance"
+              id="address"
+              class="form-control"
+              formControlName="balance"
+              value="${user.balance}"
+            />
+          </div>
+          <div class="mb-4 dropdown">
+            <label for="staff" id="staff" class="form-label padding"
+              >Staff Status</label
+            >
+            <div class="dropdown-form">
+              <select formControlName="is_staff" id="myList" name="is_staff">
+                <option>false</option>
+                <option>true</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-outline-dark"
+          (click)="saveValue()"
+          (click)="modal.close('')"
+          
+        >
+          Save
+        </button>
+      </div>
+    </ng-template>
+    
+    <!-- (click)="modal.close('Save click')" -->

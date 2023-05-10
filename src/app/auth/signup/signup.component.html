@@ -1,0 +1,52 @@
+<div class="main">
+    <div class="container">
+        <div class="box1">
+            <div class="image">
+                <img  src="../../../assets/signup_images/signup.png" alt="">
+            </div>
+            <div class="text">
+                <div class="text-box-1">
+                    <img id="Logo" src=".../../../assets/signup_images/logo1.png" alt="Royal Stock Images">
+                    <p id="Title">Royal Stock Images</p>
+                </div>
+                <div class ="text-box-2">
+                    <img id="Logo2" src="../../../assets/signup_images/logo2.png" alt="Best Stock Photos">
+                    <p id="text-2">Best Stock Photos and <br> Videos from across the <br> internet.</p>
+                </div>
+                <div class="text-box-3">
+                    <img id="Logo-3" src="../../../assets/signup_images/logo3.png" alt="Image Editor">
+                    <p id="text-3">Image Editor</p>
+                </div>
+            </div>
+        </div>
+        <div class="box2">
+            <div class="block1">
+                <div class="text-box-4">
+                  <img class="Logo-4" src="../../../assets/login_images/logo.png" alt="Logo" />
+                  <h3 class="text-4">Logo here</h3>
+                </div>
+                <div class="signin">
+                  <p >
+                    have an account?
+                    <a routerLink="/login" >Sign in!</a>
+                  </p>
+                </div>
+              </div>
+            
+                <div class="block2">
+                    <h1 class="header">Get Started With a MAKER</h1>
+                    <p class="para-1">Getting Started is easy</p>
+                    <form id="register-form">
+                        <div class="form-div">
+                            <input type="text" id="username" placeholder="Full Name"  name="uname" [formControl]="username" required><br>
+                            <input type="email" id="email" placeholder="Enter Email" name="email" [formControl]="email" required><br>
+                            <input type="password" id="password1" placeholder="Password" name="password" [formControl]="password" required><br>
+                            <input type="password" id="password2" placeholder="Confirm Password" name="psw" [formControl]="password" required><br>
+                            <button type="submit" nbButton status="primary">Create Account</button>
+                            <p class="para-last">By continuing you indicate that you read and agreed to the Terms and of use</p>
+                        </div>
+                    </form>
+                </div>
+                </div>
+        </div>
+    </div>

@@ -1,0 +1,54 @@
+<div class="main-block">
+    <div class="first-block">
+      <div class="block1">
+        <div class="Logo">
+          <img class="Logo" src="../../../assets/login_images/logo.png" alt="Logo" />
+          <h3 class="text">Logo here</h3>
+        </div>
+        <div>
+          <p class="signup">
+            Don't have an account?
+            <a routerLink="/signup">Sign up!</a>
+          </p>
+        </div>
+      </div>
+      <div class="container1">
+        <div class="block2">
+          <div>
+              <h1>Welcome Back</h1>
+              <h3>Log into your account</h3>
+              <div class="hr">
+                  <hr  class="rotate" >
+                  <p>  or continue with</p>
+                  <hr  class="rotate">
+              </div>
+          </div>
+          <form [formGroup]="myForm" method="post">
+              <div class="dashboard">
+                  <input type="text" id = "username" placeholder="Username" name="uname" formControlName="username" required><br>
+                  <input type="password" id="password" placeholder="Password" name="psw" formControlName="password" required><br>
+                  <div class="forgot">Forgot Password?</div><br>
+                  <button (click)="login()" nbButton status="info" class="login">Login</button>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="dashboard">
+      <div class="container-block">
+        <img   src="../../../assets/login_images/linkdin_img.png" alt="linkdin image" />
+        <div class="bottom-middle">
+          <p>
+            <img src="../../../assets/login_images/thumbs_up.png" alt="" /> Top Notch Stock
+            Resources
+          </p>
+          
+          <h3>
+            Today, we create innovative solutions to the <br />
+            challenges that consumers face in both their <br />
+            everyday lives and events.
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
