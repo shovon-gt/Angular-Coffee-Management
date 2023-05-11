@@ -43,11 +43,11 @@ export class LoginComponent {
       next(value: any) {
         console.log('v', value.message);
         if(value.message == "Welcome as admin." && value.data.role == "admin" ){
-          window.location.href = `http://172.16.50.62:8000/admin_homepage/`;
+          window.location.href = `http://localhost:4200/adminhomepage`;
       }
       else if(value.message == "Welcome as user." && value.data.role == "user"){
           let id = localStorage.setItem("id", value.data.id);
-          window.location.href = `http://172.16.50.62:8000/user_homepage/`;
+          window.location.href = `http://localhost:4200/userhomepage/`;
           console.log("Hello world")
       }
       else{

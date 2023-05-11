@@ -13,6 +13,7 @@
     <div class="box2">
       <!-- <app-search (searchTextChanged)="onSearchtextEntered($event)"></app-search> -->
     </div>
+    <div id="modal"></div>
     <div class="box3">
         <h1>All the Register users are here.</h1>
         <p>An overview of all your transactions over the year.</p>
@@ -31,7 +32,7 @@
           </tr>  
       </thead>  
       <tbody>  
-        <tr *ngFor="let student of data">  
+        <tr *ngFor="let student of UserList">  
           <td>{{ student.id }}</td>  
           <td>{{ student.username }}</td>  
           <td>{{ student.email }}</td>  
@@ -41,8 +42,9 @@
           <td>
             <!-- <button (click)="openModal(content)">open modal</button> -->
             <button class="btn btn-warning editButton" nbButton status="info" (click)="handleEdit(content, student.id)">Edit</button>
-            <button class="btn btn-danger" nbButton status="primary" (click)="handleRemoveValue(student.id)">-15</button>
-            <button class="btn btn-primary" nbButton status="warning" (click)="handleRemoveUser(student.id)">Delete</button>
+            <button class="btn btn-danger" nbButton status="primary"  (click)="handleRemoveValue(student.id)">-15</button>
+            <button class="btn btn-primary" nbButton status="warning" (click)="handleDeleteModal(student.id)">Delete</button>
+            <button class="btn btn-primary" nbButton status="warning" (click)="open2(student.id)">Delete</button>
           </td>
         </tr>  
       </tbody>  
@@ -70,7 +72,7 @@
               placeholder="Enter Name"
               class="form-control"
               formControlName="username"
-              value="${user.name}"
+              value="${user.username}"
               
             />
           </div>
@@ -128,6 +130,8 @@
         <button
           type="button"
           class="btn btn-outline-dark"
+          nbButton status="info"
+          
           (click)="saveValue()"
           (click)="modal.close('')"
           

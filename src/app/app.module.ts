@@ -13,7 +13,7 @@ import { AdminHomeComponent } from './home/admin-home/admin-home.component';
 import { UserHomeComponent } from './home/user-home/user-home.component';
 import { ModalBasicComponent } from './home/admin-home/modal-basic/modal-basic.component';
 import { NbThemeModule, NbButtonModule, NbDialogModule, NbInputModule,
-  NbLayoutModule, NbCardModule, NbSelectModule, } from '@nebular/theme';
+  NbLayoutModule, NbCardModule, NbSelectModule, NbToastrModule} from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 
@@ -42,7 +42,9 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     NbSelectModule,
     NbCardModule,
     NbInputModule,
+    NbToastrModule.forRoot(),
     NbDialogModule.forRoot(),
+    
   
   ],
   providers: [],

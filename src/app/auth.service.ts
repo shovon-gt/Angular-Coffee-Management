@@ -53,4 +53,20 @@ export class AuthService {
   addEmployee(val:any){
     return this.http.post(this.apiUrl+'/postemployee', val)
   }
+  singleUser(id:any){
+    return this.http.get(this.apiUrl+`/singleuser/${id}/`)
+  }
+  updateUser(formData:any, id: any){
+    const url = `${this.apiUrl}/userupdate/${id}/`;
+    return this.http.put(url, formData,{headers: this.headers})
+  }
+  updateBalance(user:any, id: any){
+    const url = `${this.apiUrl}/userupdate/${id}/`;
+    user.balance = user.balance -15
+    return this.http.put(url, user,{headers: this.headers})
+  }
+  deleteUser(user: any, id: any){
+    const url = `${this.apiUrl}userdelete/${id}/`;
+    return this.http.delete(url, user);
+  }
 }
