@@ -43,8 +43,8 @@
             <!-- <button (click)="openModal(content)">open modal</button> -->
             <button class="btn btn-warning editButton" nbButton status="info" (click)="handleEdit(content, student.id)">Edit</button>
             <button class="btn btn-danger" nbButton status="primary"  (click)="handleRemoveValue(student.id)">-15</button>
-            <button class="btn btn-primary" nbButton status="warning" (click)="handleDeleteModal(student.id)">Delete</button>
-            <button class="btn btn-primary" nbButton status="warning" (click)="open2(student.id)">Delete</button>
+            <button class="btn btn-primary" nbButton status="warning" (click)="handleDeleteModal(content2, student.id)">Delete</button>
+            <!-- <button class="btn btn-primary" nbButton status="warning" (click)="open2(student.id)">Delete</button> -->
           </td>
         </tr>  
       </tbody>  
@@ -139,6 +139,55 @@
           Save
         </button>
       </div>
+    </ng-template>
+
+    <ng-template #content2 let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Are You want to Delete the User?</h4>
+        <button
+          type="button"
+          class="btn-close"
+          aria-label="Close"
+          (click)="modal.dismiss('Cross click')"
+        ></button>
+      </div>
+      <div (click)="onModalClose()" class="backdrop">
+        <div (click)="handleModalPress($event)" onpointerdown="handleModalPress(event)" class="my-4 m-4 px-4 py-4 card popup1" >
+        <h3 class="mb-4 text-center">Are you want to delete the user?</h3>
+        <div class="mt-4 p-4 button-group flex delete-confirm">
+        <button type="button" (click)="onDeleteUser(user.id)" class="btn btn-danger btn-lg px-4 mr-4">
+            YES
+        </button>
+        <button type="button" class="btn btn-warning btn-lg ml-4 px-4" onclick="onModalClose()"
+        >
+            NO
+        </button>
+        </div>
+        </div>
+        </div> `;
+      <!-- <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+        <button
+          type="button"
+          class="btn-close"
+          aria-label="Close"
+          (click)="modal.dismiss('Cross click')"
+        ></button>
+      </div>
+      
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-outline-dark"
+          nbButton status="info"
+          
+          (click)="saveValue()"
+          (click)="modal.close('')"
+          
+        >
+          Save
+        </button>
+      </div> -->
     </ng-template>
     
     <!-- (click)="modal.close('Save click')" -->
