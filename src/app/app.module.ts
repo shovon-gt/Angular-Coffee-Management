@@ -15,6 +15,7 @@ import { ModalBasicComponent } from './home/admin-home/modal-basic/modal-basic.c
 import { NbThemeModule, NbButtonModule, NbDialogModule, NbInputModule,
   NbLayoutModule, NbCardModule, NbSelectModule, NbToastrModule} from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { HeaderComponent } from './header/header.component';
 
 
 
@@ -25,6 +26,7 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     SignupComponent,
     AdminHomeComponent,
     ModalBasicComponent,
+    HeaderComponent,
     
    
   ],

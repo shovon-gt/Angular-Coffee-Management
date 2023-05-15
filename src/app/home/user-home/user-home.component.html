@@ -1,28 +1,30 @@
+
 <div class="container">
     <div class="main-box">
 
     <div>
       <div class="d-flex justify-content-center">
-          <div class="spinner-border"
-              role="status" id="loading">
-              <span class="sr-only">Loading...</span>
-          </div>
-      <div class="main-content">
-      <div id="img"> 
-          <img src="../../../assets/user_images/Icon.png" alt="">
-      </div >
-      <div id="content">
-        <h1 id="name"></h1>
-        <p id="email"></p>
-        <div class="value-display">
-          <p id="team"></p>
-          <h4 id="id"></h4>
-        </div>
-        <h4 id="balance"></h4>
-    </div>
-    </div>
-    </div>
+        <!-- <div class="spinner-border"
+            role="status" id="loading">
+            <span class="sr-only">Loading...</span>
+        </div> -->
+    <div class="main-content">
+    <div id="img"> 
+        <img src="../../../assets/user_images/Icon.png" alt="">
+    </div >
+    <div id="content">
+      <h1 id="name">{{userDetails.username}}</h1>
+      <p id="email">{{userDetails.email}}</p>
+      <div class="value-display">
+        <p id="team">{{userDetails.team}}</p>
+        <h4 id="id">{{userDetails.id}}</h4>
+      </div>
+      <h4 id="balance">{{userDetails.balance}}</h4>
   </div>
-  <div id="logout">
-    <button id="logoutbutton" onclick="handleLogout()">Logout</button>
   </div>
+  </div>
+  </div>
+  <!-- <div id="logout">
+    <button id="logoutbutton" onclick="handleLogout()">Logout</button> -->
+  </div>
+  

@@ -1,7 +1,7 @@
 .container{
     position: absolute;
     width: 27%;
-    height: 50%;
+    height: 55%;
     left: 36%;
     top: 29%;
     background: #FFFFFF;
@@ -13,12 +13,13 @@
 }
 .main-content{
     padding: 20px;
-    display: flex;
+    // display: flex;
+    // flex-direction: row;
     height: 47px;
 }
 #img{
     width: 111px;
-    height: 11rem;
+    height: 7rem;
     border-radius: 50%;
     justify-content: center;
     display: flex;
@@ -32,7 +33,7 @@
     text-align: center;
 }
 #balance{
-    display: flex;
+    // display: flex;
     /* flex-direction: row; */
     align-items: center;
     padding: 10px 30px;

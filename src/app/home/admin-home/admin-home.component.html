@@ -1,15 +1,8 @@
+
+
 <div id="modal"></div>
 <div class="container1">
-    <div class="box1">
-      <div id="logout">
-        <button id="logoutbutton" nbButton status="danger" (click)="handleLogout()">Logout</button>
-      </div>
-      <h2 class="dashboard">Dashboard</h2>
-      <div class="p">
-        <a href="">Acme crop </a>
-        <a href=""> > Transaction</a>
-      </div>
-    </div>
+    
     <div class="box2">
       <!-- <app-search (searchTextChanged)="onSearchtextEntered($event)"></app-search> -->
     </div>
@@ -19,6 +12,9 @@
         <p>An overview of all your transactions over the year.</p>
       
     </div>
+    <div id="useradd">
+      <button (click)="handleAddUser(content3)" nbButton status="success" id="adduser">Add New User</button>
+  </div>
     <table id="employees" class="table table-striped">  
       <thead>  
           <tr>  
@@ -33,22 +29,28 @@
       </thead>  
       <tbody>  
         <tr *ngFor="let student of UserList">  
-          <td>{{ student.id }}</td>  
-          <td>{{ student.username }}</td>  
+          <td >{{ student.id }}</td>  
+          <td id="userData" [routerLink]="['/userhomepage/', student.id]">{{ student.username }}</td>  
           <td>{{ student.email }}</td>  
           <td>{{ student.team }}</td> 
           <td>{{ student.balance }}</td> 
           <td> {{student.is_staff}} </td>
           <td>
             <!-- <button (click)="openModal(content)">open modal</button> -->
-            <button class="btn btn-warning editButton" nbButton status="info" (click)="handleEdit(content, student.id)">Edit</button>
             <button class="btn btn-danger" nbButton status="primary"  (click)="handleRemoveValue(student.id)">-15</button>
+            <button class="btn btn-warning editButton" nbButton status="info" (click)="handleEdit(content, student.id)">Edit</button>
             <button class="btn btn-primary" nbButton status="warning" (click)="handleDeleteModal(content2, student.id)">Delete</button>
             <!-- <button class="btn btn-primary" nbButton status="warning" (click)="open2(student.id)">Delete</button> -->
           </td>
         </tr>  
       </tbody>  
     </table>  
+    <div class="pagination-container container">
+      <nav  aria-label="...">
+        <ul id="pagination" class="pagination pagination-sm">
+        </ul>
+      </nav>
+    </div>
     <hr>
     <ng-template #content let-modal>
       <div class="modal-header">
@@ -142,6 +144,7 @@
     </ng-template>
 
     <ng-template #content2 let-modal>
+      
       <div class="modal-header">
         <h4 class="modal-title" id="modal-basic-title">Are You want to Delete the User?</h4>
         <button
@@ -151,21 +154,20 @@
           (click)="modal.dismiss('Cross click')"
         ></button>
       </div>
-      <div (click)="onModalClose()" class="backdrop">
-        <div (click)="handleModalPress($event)" onpointerdown="handleModalPress(event)" class="my-4 m-4 px-4 py-4 card popup1" >
-        <h3 class="mb-4 text-center">Are you want to delete the user?</h3>
-        <div class="mt-4 p-4 button-group flex delete-confirm">
-        <button type="button" (click)="onDeleteUser(user.id)" class="btn btn-danger btn-lg px-4 mr-4">
-            YES
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" nbButton status="danger" (click)="onDeleteUser(user.id)" (click)="modal.close('')">
+          Yes
         </button>
-        <button type="button" class="btn btn-warning btn-lg ml-4 px-4" onclick="onModalClose()"
-        >
-            NO
+        <button type="button" class="btn btn-outline-dark" nbButton status="info" (click)="modal.close('')">
+          No
         </button>
-        </div>
-        </div>
-        </div> `;
-      <!-- <div class="modal-header">
+      </div>
+    </ng-template>
+    
+    <!-- (click)="modal.close('Save click')" -->
+
+    <ng-template #content3 let-modal>
+      <div class="modal-header">
         <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
         <button
           type="button"
@@ -174,20 +176,62 @@
           (click)="modal.dismiss('Cross click')"
         ></button>
       </div>
-      
+      <div class="modal-body">
+        <form [formGroup]="myForm2"  method="post">
+          <div class="mb-4 input-item">
+            <label for="name" class="form-label">Username</label>
+            <input
+              required
+              name="username"
+              type="text"
+              id="name"
+              placeholder="Enter Name"
+              class="form-control"
+              formControlName="username"
+              value="${user.username}"
+              
+            />
+          </div>
+          <div class="mb-4 input-item">
+            <label for="email" class="form-label">Email</label>
+            <input
+              required
+              name="email"
+              type="email"
+              id="email"
+              placeholder="Enter Email"
+              class="form-control"
+              formControlName="email"
+              value="${user.email}"
+            />
+          </div>
+          <div class="mb-4 input-item">
+            <label for="password" class="form-label">Password</label>
+            <input
+              required
+              name="password"
+              type="password"
+              id="password"
+              placeholder="Enter password"
+              class="form-control"
+              formControlName="password"
+              value="${user.password}"
+            />
+          </div>
+
+        </form>
+      </div>
       <div class="modal-footer">
         <button
           type="button"
           class="btn btn-outline-dark"
           nbButton status="info"
           
-          (click)="saveValue()"
+          (click)="saveUser()"
           (click)="modal.close('')"
           
         >
           Save
         </button>
-      </div> -->
+      </div>
     </ng-template>
-    
-    <!-- (click)="modal.close('Save click')" -->

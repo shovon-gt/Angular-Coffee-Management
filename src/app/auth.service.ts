@@ -50,8 +50,8 @@ export class AuthService {
   allData():Observable<any>{
     return this.http.get(this.apiUrl+ '/userlist/');
   }
-  addEmployee(val:any){
-    return this.http.post(this.apiUrl+'/postemployee', val)
+  addUser(val:any){
+    return this.http.post(this.apiUrl+'/register_user/', val, {headers: this.headers})
   }
   singleUser(id:any){
     return this.http.get(this.apiUrl+`/singleuser/${id}/`)
@@ -65,8 +65,9 @@ export class AuthService {
     user.balance = user.balance -15
     return this.http.put(url, user,{headers: this.headers})
   }
-  deleteUser(user: any, id: any){
-    const url = `${this.apiUrl}userdelete/${id}/`;
-    return this.http.delete(url, user);
+  deleteUser(id: any){
+    const url = `${this.apiUrl}/userdelete/${id}/`;
+    // console.log("delete User called.");
+    return this.http.delete(url);
   }
 }

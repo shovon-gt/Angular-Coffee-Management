@@ -10,6 +10,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'adminhomepage', component: AdminHomeComponent},
   {path: 'userhomepage', component: UserHomeComponent},
+  {path: 'userhomepage/:id', component: UserHomeComponent},
 //   {path: 'employee', component:EmployeeComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'login' }
 ];

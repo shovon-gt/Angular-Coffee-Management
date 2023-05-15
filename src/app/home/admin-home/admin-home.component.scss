@@ -58,23 +58,23 @@ body {
     float: right;
     /* padding: 6px; */
     display: flex;
-    margin: 15px 34px;
+    margin: 15px 62px;
     font-size:16px;
   }
   
   #adduser {
-    background-color: #f2f2f2;
+    // background-color: #191529;
     border: 1px solid;
     border-radius: 7px;
     padding: 13px 20px;
-    color: rgb(44, 87, 15);
+    color: #ebebeb;
     
   }
   #adduser:hover {
-    background-color: #2c570f;
+    background-color: #b68c18;
     border: 1px solid;
     border-radius: 7px;
-    color: #fff;
+    color: #7a2828;
   }
   .dashboard{
     margin-left: 65px;
@@ -93,8 +93,10 @@ body {
   
   #employees td,
   #customers th {
+    vertical-align: middle;
+    text-align: center;
     border: 1px solid #ddd;
-    padding: 2px;
+    padding: 4px;
   }
   
   #employees tr:nth-child(even) {
@@ -146,24 +148,11 @@ body {
   .input-item {
     margin-top: 1rem;
   }
-  #logout{
-    width: 8%;
-    /* height: 13%; */
-    /* text-align: center; */
-    float: right;
   
+  #navLink{
+    display: flex;
   }
-  #logoutbutton{
-    color: white;
-    // background: crimson;
-    cursor: pointer;
-    padding: 13px 20px;
-    border-radius: 7px;
-    FONT-SIZE: 16px;
-    margin: 10% -21%;
-    border: none;
-    outline: none;
-  }
+  
   .padding{
     margin-top: 12px;
   }
@@ -177,3 +166,9 @@ body {
   .btn{
     margin: 5px;
   }
+
+#userData:hover{
+  cursor: pointer;
+  background-color: #5a69a0;
+  color: white;
+}

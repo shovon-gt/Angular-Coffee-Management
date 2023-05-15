@@ -10,7 +10,7 @@ import {
 import { ModalBasicComponent } from './modal-basic/modal-basic.component';
 import { AuthService } from 'src/app/auth.service';
 import { map } from 'rxjs/operators';
-import { Router } from '@angular/router';
+
 import {
   NbToastrService,
   NbComponentStatus,
@@ -26,17 +26,39 @@ import {
 })
 export class AdminHomeComponent {
   myForm!: FormGroup;
+  myForm2!: FormGroup;
+  paginationContainer = document.getElementById("pagination");
   constructor(
     private service: AuthService,
     private modalService: NgbModal,
     private toastrService: NbToastrService,
-    private router: Router,
+
     private dialogService: NbDialogService
   ) {}
   UserList: any[] = [];
   user: any;
   updatedData: any;
   private index: number = 0;
+
+  state = {
+    data: [],
+    pageNumber: 1,
+    pageSize: 10,
+    numberOfPages: 1,
+  };
+  renderPagination = (pages:any) => {
+    const pagesArray = [];
+    for(let i = 0; i < pages; i++) {
+        const item = `
+        <li class="page-item" onclick="onPaginate(${i+1})">
+            <span class="page-link"  tabindex="-1">${i+1}</span>
+        </li>
+        `
+        pagesArray.push(item);
+    }
+    // this.paginationContainer.innerHTML = pagesArray.join("");
+}
+
 
   @HostBinding('class')
   classes = 'example-items-rows';
@@ -47,10 +69,16 @@ export class AdminHomeComponent {
     this.myForm = new FormGroup({
       id: new FormControl(''),
       username: new FormControl(''),
+      password: new FormControl(''),
       email: new FormControl(''),
       team: new FormControl(''),
       balance: new FormControl(''),
       is_staff: new FormControl(''),
+    });
+    this.myForm2 = new FormGroup({
+      username: new FormControl(''),
+      email: new FormControl(''),
+      password: new FormControl(''),
     });
   }
 
@@ -132,7 +160,7 @@ export class AdminHomeComponent {
   }
   showToast(status: NbComponentStatus) {
     console.log('status', status);
-    debugger;
+    // debugger;
     if (status === 'success') {
       this.toastrService.show(`Data Updated`, `ID: ${this.user.id}`, { status });
     }
@@ -159,7 +187,7 @@ export class AdminHomeComponent {
     this.UserList = this.UserList.filter((x) => x.id != formData.id);
     this.service.singleUser(studentId).subscribe((data) => {
       this.user = data;
-      this.service.deleteUser(this.user, studentId).subscribe((data) => {
+      this.service.deleteUser(studentId).subscribe((data) => {
         this.updatedData = data;
         this.refreshUserlist();
         this.showToast('warning');
@@ -186,10 +214,7 @@ export class AdminHomeComponent {
     this.searchText = searchValue;
     console.log(this.searchText);
   }
-  handleLogout() {
-    console.log('clicked');
-    this.router.navigateByUrl('login');
-  }
+
 handleModalPress(e:any){
     e.stopPropagation();
   };
@@ -220,13 +245,20 @@ handleDeleteModal(content: any, id: any) {
 };
 
 onDeleteUser(id:any){
-  this.service.singleUser(id).subscribe((data) => {
-    this.user = data;
-    // console.log(this.user);
-    // console.log(this.user.id);
-    this.service.deleteUser(this.user,id);
-  // onModalClose();
-  });
+  debugger;
+  // this.service.singleUser(id).subscribe((data) => {
+  //   this.user = data;
+  //   // console.log(this.user);
+  //   // console.log(this.user.id);
+  //   console.log("delete User called in on delete method.");
+  //   // onModalClose();
+  // });
+  this.service.deleteUser(id).subscribe(res=> {
+    console.log('res of delete', res);
+    this.refreshUserlist();
+    this.showToast('warning')
+    
+  })
   // this.service.deleteUser(id);
   // // onModalClose();
 };
@@ -235,5 +267,49 @@ onDeleteUser(id:any){
 open2(id:any) {
   // this.dialogService.open(DialogNamePromptComponent)
   //   .onClose.subscribe(name => name && this.names.push(name));
+}
+handleAddUser(content: any){
+  this.modalService
+      .open(content, { ariaLabelledBy: 'modal-basic-title' })
+      .result.then(
+        (result) => {
+          this.closeResult = `Closed with: ${result}`;
+        },
+        (reason) => {
+          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        }
+      );
+  // this.service.addUser(submitinfo)
+  // console.log('Add User called.');
+  
+}
+saveUser() {
+  console.log('inside save user.');
+  
+  this.service.addUser(this.myForm2.value).subscribe(
+    (data) => {
+      console.log('inside save user.');
+      console.log('called', data);
+      this.updatedData = data;
+      this.refreshUserlist();
+      this.showToastAdduser('success');
+    },
+    (error) => {
+      console.log('err', error);
+      this.showToastAdduser('danger');
+    }
+  );
+}
+
+showToastAdduser(status: NbComponentStatus) {
+  console.log('status', status);
+  // debugger;
+  if (status === 'success') {
+    this.toastrService.show(`Data Added`, ``, { status });
+  }
+
+  else {
+    this.toastrService.show('Something went wrong', ``, { status });
+  }
 }
 }
