@@ -10,7 +10,6 @@ export class AuthService {
   apiUrl = 'http://172.16.50.62:8000';
   stringifiedData: any; 
   headers = new HttpHeaders()
-    
       // .set('content-type','application/json')
       // .set('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With')
       // .set('Access-Control-Allow-Methods', 'POST,  GET')
@@ -18,18 +17,7 @@ export class AuthService {
       // .set('Content-Type', 'text/plain' )
       // .append('Content-Type','text/plain')
       .append('Content-Type','application/json')
-      
 
-  // headerDict = {
-  //   'Content-Type': 'application/json',
-  //   'Accept': 'application/json',
-  //   // 'Access-Control-Allow-Methods': 'POST, PUT, PATCH, GET, DELETE, OPTIONS',
-  //   'Access-Control-Allow-Headers': 'Content-Type',
-  // }
-  
-  // requestOptions = {                                                                                                                                                                                 
-  //   headers: new Headers(this.headerDict), 
-  // };
   
   constructor(private http: HttpClient) { }
 

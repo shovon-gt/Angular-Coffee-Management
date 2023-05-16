@@ -49,7 +49,7 @@ export class LoginComponent {
       }
       else if(value.message == "Welcome as user." && value.data.role == "user"){
           let id = localStorage.setItem("id", value.data.id);
-          window.location.href = `http://localhost:4200/userhomepage/`;
+          window.location.href = `http://localhost:4200/userhomepage/${value.data.id}`;
           console.log("Hello world")
       }
       else{

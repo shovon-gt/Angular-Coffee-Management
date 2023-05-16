@@ -93,19 +93,29 @@ color: #000000;
 }
 
 #logout{
-    width: 8%;
-    /* height: 13%; */
-    /* text-align: center; */
-    float: right;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 
-}
-#logoutbutton{
+    width: 8%;
+    height: 13%; 
+    text-align: center;
+    float: right;
+  
+  }
+  #logoutbutton{
     color: white;
+    position:fixed;
+    right:145px;
+    top:30px;
+    // top: 90px;
     background: crimson;
+    float: right;
+    cursor: pointer;
     padding: 13px 20px;
     border-radius: 7px;
     FONT-SIZE: 16px;
-    margin: 10% -21%;
-    border: none;
+    // margin: 10% -44%;
+    // border: none;
     outline: none;
-}
+  }

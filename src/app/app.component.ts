@@ -9,8 +9,9 @@ export class AppComponent implements OnInit{
   isAdmin = false;
   title = 'coffee_management';
   message:any;
+  isStaff = false;
   id = localStorage.getItem("id")
-  constructor(private authService: AuthService){}
+  constructor(public authService: AuthService){}
 
   ngOnInit(): void {
     this.userInformation()
@@ -19,13 +20,18 @@ export class AppComponent implements OnInit{
     this.authService.singleUser(this.id).subscribe((data)=>{
       console.log(data);
       this.message = data
-      console.log('message', this.message.message);
-      // if (this.message.is_staff=true) {
-      //   this.isAdmin = true;
-      // } else {
-      //   this.isAdmin = false;
-      // }
-      
+      console.log('message', this.message.is_staff);
+      if (this.message.is_staff) {
+        this.isStaff = true;
+        console.log('true', this.isStaff);
+      }
+      else if(!this.message.is_staff){
+        this.isStaff = false;
+        console.log('false', this.isStaff);
+      }
+      else {
+        this.isStaff = false;
+      }      
       
     })
   }
