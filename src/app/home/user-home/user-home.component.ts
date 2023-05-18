@@ -7,7 +7,8 @@ import { ActivatedRoute, Route,Router } from '@angular/router';
   styleUrls: ['./user-home.component.scss']
 })
 export class UserHomeComponent implements OnInit{
-  id = localStorage.getItem("id")
+  id = localStorage.getItem("id");
+  isAdmin = localStorage.getItem("isAdmin");
   isStaff: any =false;
   userDetails: any;
   constructor(private authService: AuthService, private route: ActivatedRoute,private router: Router){

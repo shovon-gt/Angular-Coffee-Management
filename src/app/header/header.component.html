@@ -4,7 +4,7 @@
         <div id="navLink">
             <ul class="nav navbar-nav">
                 <li routerLinkActive="active"><a routerLink="/adminhomepage/">Dashboard</a></li>
-                <li routerLinkActive="active"><a [routerLink]="['/userhomepage/', userInfo.id]">Profile</a></li>
+                <li routerLinkActive="active"><a [routerLink]="['/userhomepage/', userInfo?.id]">Profile</a></li>
             </ul>
           <!-- <a routerLink="/adminhomepage/"><button class="btn btn-success pull-right" >Dashboard</button></a>
           <a routerLink="/userhomepage/"><button class="btn btn-success pull-right" >Profile</button></a> -->

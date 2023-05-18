@@ -1,4 +1,7 @@
-
+<nb-layout-header *ngIf="isStaff || isAdmin" fixed>
+  <!-- <h1  class="header"> GigaTech Coffee Management System </h1>-->
+   <app-header></app-header>
+  </nb-layout-header>
 <div class="container">
     <div class="main-box">
 
@@ -16,10 +19,10 @@
       <h1 id="name">{{userDetails?.username}}</h1>
       <p id="email">{{userDetails?.email}}</p>
       <div class="value-display">
-        <p id="team">{{userDetails?.team}}</p>
-        <h4 id="id">{{userDetails?.id}}</h4>
+        <p id="team">Team: {{userDetails?.team}}</p>
+        <h4 id="id">ID: {{userDetails?.id}}</h4>
       </div>
-      <h4 id="balance">{{userDetails?.balance}}</h4>
+      <h4 id="balance">Balance: {{userDetails?.balance}}</h4>
   </div>
   </div>
   </div>

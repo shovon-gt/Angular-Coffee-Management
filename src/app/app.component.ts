@@ -10,30 +10,33 @@ export class AppComponent implements OnInit{
   title = 'coffee_management';
   message:any;
   isStaff = false;
+  isLoggedIn = localStorage.getItem('isLoggedIn');
   id = localStorage.getItem("id")
   constructor(public authService: AuthService){}
 
   ngOnInit(): void {
-    this.userInformation()
+    // console.log('isLoggedIn', this.isLoggedIn);
+    
+    // this.userInformation();
   }
-  userInformation(){
-    this.authService.singleUser(this.id).subscribe((data)=>{
-      console.log(data);
-      this.message = data
-      console.log('message', this.message.is_staff);
-      if (this.message.is_staff) {
-        this.isStaff = true;
-        console.log('true', this.isStaff);
-      }
-      else if(!this.message.is_staff){
-        this.isStaff = false;
-        console.log('false', this.isStaff);
-      }
-      else {
-        this.isStaff = false;
-      }      
+  // userInformation(){
+  //   this.authService.singleUser(this.id).subscribe((data)=>{
+  //     console.log(data);
+  //     this.message = data
+  //     console.log('message', this.message.is_staff);
+  //     if (this.message.is_staff) {
+  //       this.isStaff = true;
+  //       console.log('true', this.isStaff);
+  //     }
+  //     else if(!this.message.is_staff){
+  //       this.isStaff = false;
+  //       console.log('false', this.isStaff);
+  //     }
+  //     else {
+  //       this.isStaff = false;
+  //     }      
       
-    })
-  }
+  //   })
+  // }
 }
 

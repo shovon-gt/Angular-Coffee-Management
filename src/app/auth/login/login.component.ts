@@ -43,8 +43,9 @@ export class LoginComponent {
       next(value: any) {
         console.log('v', value.message);
         if(value.message == "Welcome as admin." && value.data.role == "admin" ){
-          let id = localStorage.setItem("id", value.data.id);
-          let name = localStorage.setItem("name", value.data.username);
+          localStorage.setItem("id", value.data.id);
+          localStorage.setItem("name", value.data.username);
+          localStorage.setItem('isAdmin', value.data.is_staff);
           window.location.href = `http://localhost:4200/adminhomepage`;
       }
       else if(value.message == "Welcome as user." && value.data.role == "user"){

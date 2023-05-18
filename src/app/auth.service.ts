@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
+import {} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -20,6 +21,20 @@ export class AuthService {
 
   
   constructor(private http: HttpClient) { }
+  private isLoggedInSource = new BehaviorSubject<boolean>(false);
+  public _isLoggedIn: Observable<boolean> = this.isLoggedInSource.asObservable();
+  // castUser = this.user.asObservable();
+  set isLoggedIn(logged: boolean) {
+    this.isLoggedInSource.next(logged);
+  }
+
+  logout() {
+    window.location.reload();
+  }
+
+  // get isLoggedIn() {
+  //   return this._isLoggedIn;
+  // }
 
 
   login(body: any){
@@ -55,7 +70,7 @@ export class AuthService {
   }
   deleteUser(id: any){
     const url = `${this.apiUrl}/userdelete/${id}/`;
-    // console.log("delete User called.");
     return this.http.delete(url);
   }
+
 }
