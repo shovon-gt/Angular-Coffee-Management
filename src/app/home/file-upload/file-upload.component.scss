@@ -1,0 +1,25 @@
+.input-field{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 250px;
+  width: 450px;
+  margin: auto;
+  border: 3px solid #b9b584; 
+  vertical-align: center;
+  background-color: aliceblue;
+  border-radius: 5%;
+
+}
+input{
+  width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    background: blue;
+    color: white;
+    // flex: 0 0 auto;
+}

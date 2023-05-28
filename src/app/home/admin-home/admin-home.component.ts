@@ -14,7 +14,7 @@ import { map } from 'rxjs/operators';
 import {
   NbToastrService,
   NbComponentStatus,
-  NbGlobalLogicalPosition,NbDialogService
+  NbGlobalLogicalPosition,NbDialogService, NbGlobalPosition, NbGlobalPhysicalPosition
 } from '@nebular/theme';
 // import { DialogNamePromptComponent } from './components/name-prompt-dialog.component';
 // import { NbGlobalLogicalPosition, NbGlobalPhysicalPosition, NbGlobalPosition, NbToastrService } from '@nebular/theme';
@@ -25,6 +25,8 @@ import {
   styleUrls: ['./admin-home.component.scss'],
 })
 export class AdminHomeComponent {
+  physicalPositions = NbGlobalPhysicalPosition;
+  logicalPositions = NbGlobalLogicalPosition;
   myForm!: FormGroup;
   myForm2!: FormGroup;
   paginationContainer = document.getElementById("pagination");
@@ -150,22 +152,22 @@ export class AdminHomeComponent {
         console.log('called', data);
         this.updatedData = data;
         this.refreshUserlist();
-        this.showToast('success');
+        this.showToast(this.logicalPositions.BOTTOM_END,'success');
       },
       (error) => {
         console.log('err', error);
-        this.showToast('danger');
+        this.showToast(this.logicalPositions.BOTTOM_END,'danger');
       }
     );
   }
-  showToast(status: NbComponentStatus) {
+  showToast(position: NbGlobalPosition, status: NbComponentStatus) {
     console.log('status', status);
     // debugger;
     if (status === 'success') {
-      this.toastrService.show(`Data Updated`, `ID: ${this.user.id}`, { status });
+      this.toastrService.show(`Data Updated`, `ID: ${this.user.id}`, {position, status });
     }
     else if(status==='warning'){
-      this.toastrService.show(`ID: ${this.user.id} deleted`, `ID: ${this.user.id}`, { status });
+      this.toastrService.show(`ID: ${this.user.id} deleted`, `ID: ${this.user.id}`, {position, status });
     }
     else {
       this.toastrService.show('Something went wrong', ``, { status });
@@ -190,7 +192,7 @@ export class AdminHomeComponent {
       this.service.deleteUser(studentId).subscribe((data) => {
         this.updatedData = data;
         this.refreshUserlist();
-        this.showToast('warning');
+        this.showToast(this.logicalPositions.BOTTOM_END,'warning');
       });
     });
 
@@ -256,7 +258,7 @@ onDeleteUser(id:any){
   this.service.deleteUser(id).subscribe(res=> {
     console.log('res of delete', res);
     this.refreshUserlist();
-    this.showToast('warning')
+    this.showToast(this.logicalPositions.BOTTOM_END,'warning')
     
   })
   // this.service.deleteUser(id);
@@ -292,24 +294,24 @@ saveUser() {
       console.log('called', data);
       this.updatedData = data;
       this.refreshUserlist();
-      this.showToastAdduser('success');
+      this.showToastAdduser(this.logicalPositions.BOTTOM_END,'success');
     },
     (error) => {
       console.log('err', error);
-      this.showToastAdduser('danger');
+      this.showToastAdduser(this.logicalPositions.BOTTOM_END,'danger');
     }
   );
 }
 
-showToastAdduser(status: NbComponentStatus) {
+showToastAdduser(position: NbGlobalPosition, status: NbComponentStatus) {
   console.log('status', status);
   // debugger;
   if (status === 'success') {
-    this.toastrService.show(`Data Added`, ``, { status });
+    this.toastrService.show(`Data Added`, `Success`, {position, status });
   }
 
   else {
-    this.toastrService.show('Something went wrong', ``, { status });
+    this.toastrService.show('Something went wrong', `Error`, {position, status });
   }
 }
 }

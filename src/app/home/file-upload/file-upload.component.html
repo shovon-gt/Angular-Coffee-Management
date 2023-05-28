@@ -1,0 +1,9 @@
+<app-header></app-header>
+<div class="input-field">
+  <form [formGroup]="myForm">
+    <input type="file" formControlName="file" class="file-upload" (change)="fileUpload($event)">
+  </form>
+  <!-- <button nbButton (click)="showToast(logicalPositions.BOTTOM_END, 'success')">Bottom End</button> -->
+</div>
+
+

@@ -73,4 +73,15 @@ export class AuthService {
     return this.http.delete(url);
   }
 
+  addUser2(value:any){
+    const headers = new HttpHeaders({
+      'content-type': 'application/json',
+      'Accept': 'application/json'
+    });
+    const options = {
+      headers:headers
+    }
+    return this.http.post(this.apiUrl+'/register_user/', value, options)
+  }
+
 }
