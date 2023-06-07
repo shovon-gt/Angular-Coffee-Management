@@ -5,14 +5,15 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { AdminHomeComponent } from './home/admin-home/admin-home.component';
 import { UserHomeComponent } from './home/user-home/user-home.component';
 import { FileUploadComponent } from './home/file-upload/file-upload.component';
+import { authGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   {path: 'login', component: LoginComponent},
-  {path: 'adminhomepage', component: AdminHomeComponent},
-  {path: 'userhomepage', component: UserHomeComponent},
-  {path: 'userhomepage/:id', component: UserHomeComponent},
-  {path: 'fileupload', component:FileUploadComponent},
+  {path: 'adminhomepage', component: AdminHomeComponent, canActivate: [authGuard]},
+  {path: 'userhomepage', component: UserHomeComponent, canActivate: [authGuard]},
+  {path: 'userhomepage/:id', component: UserHomeComponent, canActivate: [authGuard]},
+  {path: 'fileupload', component:FileUploadComponent, canActivate: [authGuard]},
   { path: '**', pathMatch: 'full', redirectTo: 'login' }
 ];
 

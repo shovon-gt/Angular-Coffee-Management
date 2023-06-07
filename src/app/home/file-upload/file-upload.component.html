@@ -1,9 +1,26 @@
 <app-header></app-header>
 <div class="input-field">
-  <form [formGroup]="myForm">
+  <nb-card *ngIf="uploadedFileName">
+    <nb-card-body class="example-items-col uploadFileBody">
+  
+      <nb-tag-list (tagRemove)="onTagRemove($event)">
+        <!-- <nb-tag >{{uploadedFileName}}</nb-tag> -->
+        <nb-tag status="basic" appearance="filled" [text]="uploadedFileName"></nb-tag>
+        
+      </nb-tag-list>
+      <!-- <button (click)="onTagValueRemove()">cancel</button> -->
+      <button class="btn btn-warning editButton" nbButton status="info" (click)="onTagValueRemove()">cancel</button>
+    </nb-card-body>
+    
+  </nb-card>
+  
+  <form [formGroup]="myForm" [ngClass]="{'fileupload' : uploadedFileName}">
+    
     <input type="file" formControlName="file" class="file-upload" (change)="fileUpload($event)">
   </form>
   <!-- <button nbButton (click)="showToast(logicalPositions.BOTTOM_END, 'success')">Bottom End</button> -->
 </div>
+
+
 
 

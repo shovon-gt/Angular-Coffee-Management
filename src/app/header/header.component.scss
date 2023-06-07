@@ -42,22 +42,28 @@ ul{
 li {
   float: left;
   margin: 3px;
-  background-color: #333333;
+  // background-color: #333333;
   // color: #333333;
   border-radius: 8px;
 }
 li a {
   display: block;
-  color: white;
+  color: black;
   text-align: center;
   padding: 12px;
   text-decoration: none;
 }
 
-li a:hover {
-  background-color: #413333;
-  border-radius: 8px;
-}
+// li a:hover {
+//   background-color: white;
+//   color: black;
+//   // border-radius: 8px;
+// }
+// li:active a:active {
+//   background-color: white;
+//   color: black;
+//   // border-radius: 8px;
+// }
 
 #name{
   position: fixed;
@@ -70,4 +76,13 @@ li a:hover {
   background: #81819b;
   padding: 12px;
 
+}
+// li a:active{
+//   background-color: white;
+//   color: #333333;
+// }
+
+.active{
+  background-color: #976464;
+  color: white;
 }

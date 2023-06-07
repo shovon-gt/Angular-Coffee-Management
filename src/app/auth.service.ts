@@ -84,4 +84,8 @@ export class AuthService {
     return this.http.post(this.apiUrl+'/register_user/', value, options)
   }
 
+  isAnyoneLoggedIn(){
+    return !!localStorage.getItem('id')
+  }
+
 }

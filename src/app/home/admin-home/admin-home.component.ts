@@ -167,10 +167,13 @@ export class AdminHomeComponent {
       this.toastrService.show(`Data Updated`, `ID: ${this.user.id}`, {position, status });
     }
     else if(status==='warning'){
-      this.toastrService.show(`ID: ${this.user.id} deleted`, `ID: ${this.user.id}`, {position, status });
+      this.toastrService.show(`Name: ${this.user.username} deleted`, `ID: ${this.user.id}`, {position, status });
+    }
+    else if(status==='danger'){
+      this.toastrService.show(`Name: ${this.user.username} deleted`, `ID: ${this.user.id}`, {position, status });
     }
     else {
-      this.toastrService.show('Something went wrong', ``, { status });
+      this.toastrService.show('Something went wrong', ``, {position, status });
     }
   }
 
@@ -258,7 +261,7 @@ onDeleteUser(id:any){
   this.service.deleteUser(id).subscribe(res=> {
     console.log('res of delete', res);
     this.refreshUserlist();
-    this.showToast(this.logicalPositions.BOTTOM_END,'warning')
+    this.showToast(this.logicalPositions.BOTTOM_END,'danger')
     
   })
   // this.service.deleteUser(id);

@@ -13,7 +13,7 @@ import { AdminHomeComponent } from './home/admin-home/admin-home.component';
 import { UserHomeComponent } from './home/user-home/user-home.component';
 import { ModalBasicComponent } from './home/admin-home/modal-basic/modal-basic.component';
 import { NbThemeModule, NbButtonModule, NbDialogModule, NbInputModule, NbTagComponent,
-  NbLayoutModule, NbCardModule, NbSelectModule, NbToastrModule} from '@nebular/theme';
+  NbLayoutModule, NbCardModule, NbSelectModule, NbToastrModule, NbTagModule} from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { HeaderComponent } from './header/header.component';
 import { FileUploadComponent } from './home/file-upload/file-upload.component';
@@ -48,6 +48,7 @@ import { ToastrModule } from 'ngx-toastr';
     NbButtonModule,
     NbSelectModule,
     NbCardModule,
+    NbTagModule,
     ToastrModule.forRoot(),
     NbInputModule,
     NbToastrModule.forRoot(),

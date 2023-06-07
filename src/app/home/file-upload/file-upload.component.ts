@@ -15,6 +15,7 @@ export class FileUploadComponent implements OnInit{
   // toastrService: any;
   file:any;
   message: any;
+  uploadedFileName?: any;
   @HostBinding('class')
   classes = 'example-items-rows';
 
@@ -26,16 +27,19 @@ export class FileUploadComponent implements OnInit{
   
   fileUpload(event:any){
     console.log(event.target.files);
-    console.log(event.target.files[0]);
+    console.log(event.target.files[0].name);
       
     if(event.target.files[0].size < 4194304 && event.target.files[0].type == 'application/pdf' ){
       
-      console.log(event.target.files[0].size);
+      this.uploadedFileName = event.target.files[0].name;
+      console.log('uploadedFileName', this.uploadedFileName);
       this.message = "File Uploaded"
       this.showToast(this.logicalPositions.BOTTOM_END,'success')
     }
     else{
       // event.target.files[0].name = "";
+      this.myForm.get('file')?.reset();
+      this.uploadedFileName = null
       console.log("file cann't exceed 4mb");
       this.message = "File type should be pdf and cann't exceed 4mb."
       this.showToast(this.logicalPositions.BOTTOM_END, 'danger')
@@ -66,5 +70,17 @@ export class FileUploadComponent implements OnInit{
       file: new FormControl(''),
     });
 
+  }
+  onTagValueRemove(){
+    console.log('clicked', this.uploadedFileName);
+    
+    this.uploadedFileName = null;
+    this.myForm.get('file')?.reset();
+    console.log('clicked after', this.uploadedFileName);
+  }
+
+
+  onTagRemove(tagToRemove: NbTagComponent): void {
+    
   }
 }
