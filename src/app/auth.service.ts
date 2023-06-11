@@ -8,15 +8,9 @@ import {} from 'rxjs';
 })
 export class AuthService {
 
-  apiUrl = 'http://172.16.50.62:8000';
+  apiUrl = 'http://192.168.71.100:30800';
   stringifiedData: any; 
   headers = new HttpHeaders()
-      // .set('content-type','application/json')
-      // .set('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With')
-      // .set('Access-Control-Allow-Methods', 'POST,  GET')
-      // .set('Access-Control-Allow-Origin', '*' )
-      // .set('Content-Type', 'text/plain' )
-      // .append('Content-Type','text/plain')
       .append('Content-Type','application/json')
 
   
@@ -32,15 +26,8 @@ export class AuthService {
     window.location.reload();
   }
 
-  // get isLoggedIn() {
-  //   return this._isLoggedIn;
-  // }
-
-
   login(body: any){
-    const url = `${this.apiUrl}/login/`;
-    // const body = {username, password};
-    
+    const url = `${this.apiUrl}/login/`;    
     return this.http.post(url, body, {headers: this.headers});
   }
 
