@@ -18,6 +18,7 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { HeaderComponent } from './header/header.component';
 import { FileUploadComponent } from './home/file-upload/file-upload.component';
 import { ToastrModule } from 'ngx-toastr';
+import { RequiredDocumentsComponent } from './required-documents/required-documents.component';
 // import { MatSortModule, MatTableModule } from '@angular/material';
 
 
@@ -31,7 +32,8 @@ import { ToastrModule } from 'ngx-toastr';
     ModalBasicComponent,
     HeaderComponent,
     UserHomeComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    RequiredDocumentsComponent
     
    
   ],

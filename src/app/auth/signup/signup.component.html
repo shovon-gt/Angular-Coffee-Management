@@ -36,13 +36,13 @@
                 <div class="block2">
                     <h1 class="header">Get Started With a MAKER</h1>
                     <p class="para-1">Getting Started is easy</p>
-                    <form id="register-form">
+                    <form id="register-form" [formGroup]="myForm">
                         <div class="form-div">
-                            <input type="text" id="username" placeholder="Full Name"  name="uname" [formControl]="username" required><br>
-                            <input type="email" id="email" placeholder="Enter Email" name="email" [formControl]="email" required><br>
-                            <input type="password" id="password1" placeholder="Password" name="password" [formControl]="password" required><br>
-                            <input type="password" id="password2" placeholder="Confirm Password" name="psw" [formControl]="password" required><br>
-                            <button type="submit" nbButton status="primary">Create Account</button>
+                            <input type="text" id="username" placeholder="Full Name"  name="uname" formControlName="username" required><br>
+                            <input type="email" id="email" placeholder="Enter Email" name="email" formControlName="email" required><br>
+                            <input type="password" id="password1" placeholder="Password" name="password" formControlName="password" required><br>
+                            <input type="password" id="password2" placeholder="Confirm Password" name="psw" formControlName="password2" required><br>
+                            <button type="submit" (click)="signUp()" nbButton status="primary">Create Account</button>
                             <p class="para-last">By continuing you indicate that you read and agreed to the Terms and of use</p>
                         </div>
                     </form>

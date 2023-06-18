@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import {} from 'rxjs';
+// import { environment } from './../environments/environment';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -30,6 +32,16 @@ export class AuthService {
     const url = `${this.apiUrl}/login/`;    
     return this.http.post(url, body, {headers: this.headers});
   }
+  login2(value:any){
+    const headers = new HttpHeaders({
+      'content-type': 'application/json',
+      'Accept': 'application/json'
+    });
+    const options = {
+      headers:headers
+    }
+    return this.http.post(this.apiUrl+'/login/', value, options)
+  }
 
   signup(username: string, email: string, password: string){
     const url = `${this.apiUrl}/register_user/`;
@@ -37,6 +49,16 @@ export class AuthService {
     return this.http.post(url, body);
   }
 
+  signup2(value:any){
+    const headers = new HttpHeaders({
+      'content-type': 'application/json',
+      'Accept': 'application/json'
+    });
+    const options = {
+      headers:headers
+    }
+    return this.http.post(this.apiUrl+'/register_user/', value, options)
+  }
   allData():Observable<any>{
     return this.http.get(this.apiUrl+ '/userlist/');
   }

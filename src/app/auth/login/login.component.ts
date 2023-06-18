@@ -14,32 +14,20 @@ export class LoginComponent {
   // data!: Object;
   // baseUrl ? :'http://172.16.50.62:8000'
   constructor(private authService: AuthService, private router: Router){}
-  // logIn(username: string, password: string): Observable {
-  //   return this.http.post(
-  //     'http://127.0.0.1:8000/api-user-login/', { username, password }
-  //     ) as Observable;
-  // }
-
   login2(){
     this.authService.login(this.myForm.value).subscribe(
       (response) =>{
         console.log('response Message',response);
-        // alert(response);
-        // console.log(response);
-        // if(response){
-        //   // this.router.navigateByUrl('adminhomepage');
-        // }
       },
       (error) => {
         console.log('Error Message',error);
         
       }
      );
-    // this.router.navigateByUrl('adminhomepage');
   }
 
   login(){
-    this.authService.login(this.myForm.value).subscribe({
+    this.authService.login2(this.myForm.value).subscribe({
       next(value: any) {
         console.log('v', value.message);
         if(value.message == "Welcome as admin." && value.data.role == "admin" ){
@@ -71,6 +59,7 @@ export class LoginComponent {
   ngOnInit() {
     this.myForm = new FormGroup({
       username: new FormControl(''),
+      email: new FormControl(''),
       password: new FormControl('')
     });
   }
