@@ -1,0 +1,40 @@
+.nb-card {
+    // transform: translate3d(0, 0, 0);
+    // max-height: 100%;
+    // height: 100%;
+    width: 20rem;
+  }
+.card-body{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+    
+}
+.card-main-body{
+    display: flex;
+    align-items: center;
+}
+.back-button{
+    background-color: white;
+    border: none;
+    margin-left: 0px;
+}
+
+.body-title{
+    color: green;
+}
+.body-title-span{
+    font-size: 16px;
+    color: rgb(173, 193, 201);
+    margin-left: 10px;
+}
+.image{
+    padding-left: 5rem;
+    padding-top: 4rem;
+}
+
+
+@media screen and (max-width: 700px){
+    
+    
+}
