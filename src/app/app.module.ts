@@ -19,7 +19,9 @@ import { HeaderComponent } from './header/header.component';
 import { FileUploadComponent } from './home/file-upload/file-upload.component';
 import { ToastrModule } from 'ngx-toastr';
 import { RequiredDocumentsComponent } from './required-documents/required-documents.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 // import { MatSortModule, MatTableModule } from '@angular/material';
+import { NbIconModule } from '@nebular/theme';
 
 
 
@@ -51,10 +53,13 @@ import { RequiredDocumentsComponent } from './required-documents/required-docume
     NbSelectModule,
     NbCardModule,
     NbTagModule,
+    NbEvaIconsModule,
+    NbIconModule,
     ToastrModule.forRoot(),
     NbInputModule,
     NbToastrModule.forRoot(),
     NbDialogModule.forRoot(),
+    FontAwesomeModule,
     
   
   ],
