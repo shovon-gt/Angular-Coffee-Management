@@ -12,8 +12,18 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { AdminHomeComponent } from './home/admin-home/admin-home.component';
 import { UserHomeComponent } from './home/user-home/user-home.component';
 import { ModalBasicComponent } from './home/admin-home/modal-basic/modal-basic.component';
-import { NbThemeModule, NbButtonModule, NbDialogModule, NbInputModule, NbTagComponent,
-  NbLayoutModule, NbCardModule, NbSelectModule, NbToastrModule, NbTagModule} from '@nebular/theme';
+import {
+  NbThemeModule,
+  NbButtonModule,
+  NbDialogModule,
+  NbInputModule,
+  NbTagComponent,
+  NbLayoutModule,
+  NbCardModule,
+  NbSelectModule,
+  NbToastrModule,
+  NbTagModule,
+} from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { HeaderComponent } from './header/header.component';
 import { FileUploadComponent } from './home/file-upload/file-upload.component';
@@ -22,9 +32,8 @@ import { RequiredDocumentsComponent } from './required-documents/required-docume
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 // import { MatSortModule, MatTableModule } from '@angular/material';
 import { NbIconModule } from '@nebular/theme';
-
-
-
+import { OtpInputComponent } from './otp-input/otp-input.component';
+import { NgOtpInputModule } from 'ng-otp-input';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,15 +44,15 @@ import { NbIconModule } from '@nebular/theme';
     HeaderComponent,
     UserHomeComponent,
     FileUploadComponent,
-    RequiredDocumentsComponent
-    
-   
+    RequiredDocumentsComponent,
+    OtpInputComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     NgbModule,
+    NgOtpInputModule,
     HttpClientModule,
     BrowserAnimationsModule,
     NbThemeModule.forRoot({ name: 'default' }),
@@ -60,12 +69,8 @@ import { NbIconModule } from '@nebular/theme';
     NbToastrModule.forRoot(),
     NbDialogModule.forRoot(),
     FontAwesomeModule,
-    
-  
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
-
-
+export class AppModule {}

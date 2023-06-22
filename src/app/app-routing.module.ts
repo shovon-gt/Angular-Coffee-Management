@@ -7,20 +7,42 @@ import { UserHomeComponent } from './home/user-home/user-home.component';
 import { FileUploadComponent } from './home/file-upload/file-upload.component';
 import { authGuard } from './auth.guard';
 import { RequiredDocumentsComponent } from './required-documents/required-documents.component';
+import { OtpInputComponent } from './otp-input/otp-input.component';
 
 const routes: Routes = [
   { path: 'signup', component: SignupComponent },
-  {path: 'login', component: LoginComponent},
-  {path: 'adminhomepage', component: AdminHomeComponent, canActivate: [authGuard]},
-  {path: 'userhomepage', component: UserHomeComponent, canActivate: [authGuard]},
-  {path: 'userhomepage/:id', component: UserHomeComponent, canActivate: [authGuard]},
-  {path: 'fileupload', component:FileUploadComponent, canActivate: [authGuard]},
-  {path: 'required-documents', component:RequiredDocumentsComponent, canActivate: [authGuard]},
-  { path: '**', pathMatch: 'full', redirectTo: 'login' }
+  { path: 'login', component: LoginComponent },
+  {
+    path: 'adminhomepage',
+    component: AdminHomeComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'userhomepage',
+    component: UserHomeComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'userhomepage/:id',
+    component: UserHomeComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'fileupload',
+    component: FileUploadComponent,
+    canActivate: [authGuard],
+  },
+  { path: 'otpInput', component: OtpInputComponent, canActivate: [authGuard] },
+  {
+    path: 'required-documents',
+    component: RequiredDocumentsComponent,
+    canActivate: [authGuard],
+  },
+  { path: '**', pathMatch: 'full', redirectTo: 'login' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

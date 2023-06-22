@@ -1,0 +1,180 @@
+@media screen and (max-width: 768px) {
+  .card {
+    width: 80%;
+    height: 30rem;
+    margin: auto;
+    top: 10%;
+    border-radius: 10px;
+    // vertical-align: center;
+  }
+  .main {
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .image {
+    width: 70%;
+    padding: 1rem;
+  }
+  //   .form-control {
+  //     padding: 0px 5px;
+  //   }
+  .expire-time {
+    font-size: 12px;
+    color: #dce0e3;
+    padding: 0px 5px;
+  }
+  .time {
+    font-weight: bold;
+    color: black;
+  }
+  .resend {
+    outline: none;
+    border: 0px;
+    background: none;
+    color: red;
+  }
+}
+@media screen and (min-width: 768px) {
+  .card {
+    width: 80%;
+    height: 50rem;
+    margin: auto;
+    top: 10%;
+    border-radius: 10px;
+    // vertical-align: center;
+  }
+  .main {
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: center;
+    align-items: center;
+    padding: 15px;
+    margin-top: 3rem;
+  }
+  .input {
+    width: 20rem;
+  }
+  .image {
+    width: 80%;
+    bottom: 0;
+    right: 0;
+    // padding-left: 5rem;
+    // padding-top: 4rem;
+    // margin-top: 5rem;
+  }
+  .message {
+    padding: 0px 5px;
+  }
+  .time {
+    font-weight: bold;
+    color: black;
+  }
+  .resend {
+    outline: none;
+    border: 0px;
+    background: none;
+    color: red;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .card {
+    width: 70%;
+    height: 80%;
+    margin: auto;
+    top: 10%;
+    border-radius: 10px;
+    // vertical-align: center;
+  }
+  .main {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
+    // padding: 15px;
+    // margin-top: 3rem;
+  }
+  .content {
+    padding: 5rem 5rem 0rem 5rem;
+  }
+  .input {
+    width: 20rem;
+  }
+  .image {
+    width: 80%;
+    bottom: 0;
+    right: 0;
+    // padding-left: 5rem;
+    padding-top: 4rem;
+    // margin-top: 5rem;
+  }
+  .message {
+    padding: 0px 5px;
+  }
+  .time {
+    font-weight: bold;
+    color: black;
+  }
+  .resend {
+    outline: none;
+    border: 0px;
+    background: none;
+    color: red;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .card {
+    width: 65rem;
+    height: 33rem;
+    margin: auto;
+    top: 10%;
+    border-radius: 10px;
+    // vertical-align: center;
+  }
+  .main {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
+    // padding: 15px;
+    // margin-top: 3rem;
+  }
+  .heading {
+    padding-bottom: 15px;
+  }
+  .content {
+    padding: 5rem 5rem 0rem 5rem;
+  }
+  .number {
+    font-size: 16px;
+    // font-weight: 900;
+  }
+  .expire-time {
+    text-align: right;
+    padding-top: 1rem;
+  }
+
+  .image {
+    width: 80%;
+    bottom: 0;
+    right: 0;
+    // padding-left: 5rem;
+    padding-top: 4rem;
+    // margin-top: 5rem;
+  }
+  .message {
+    padding: 0px 5px;
+  }
+  .resend {
+    outline: none;
+    border: 0px;
+    background: none;
+    color: red;
+  }
+}

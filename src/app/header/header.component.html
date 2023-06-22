@@ -1,19 +1,36 @@
-<nb-layout-header fixed >  
-    <div class="box1">
-      <div id="logout">
-        <div id="navLink" >
-            <ul class="nav navbar-nav" >
-                <li routerLinkActive='active'><a [routerLink]="['/adminhomepage/']" >Dashboard</a></li>
-                <li routerLinkActive='active'><a [routerLink]="['/userhomepage/', userInfo?.id]" >Profile</a></li>
-                <li routerLinkActive='active'><a [routerLink]="['/fileupload/']" >Fileupload</a></li>
-                <li routerLinkActive='active'><a [routerLink]="['/required-documents/']" >Documents</a></li>
-            </ul>
-          <!-- <a routerLink="/adminhomepage/"><button class="btn btn-success pull-right" >Dashboard</button></a>
+<nb-layout-header fixed>
+  <div class="box1">
+    <div id="logout">
+      <div id="navLink">
+        <ul class="nav navbar-nav">
+          <li routerLinkActive="active">
+            <a [routerLink]="['/adminhomepage/']">Dashboard</a>
+          </li>
+          <li routerLinkActive="active">
+            <a [routerLink]="['/userhomepage/', userInfo?.id]">Profile</a>
+          </li>
+          <li routerLinkActive="active">
+            <a [routerLink]="['/fileupload/']">Fileupload</a>
+          </li>
+          <li routerLinkActive="active">
+            <a [routerLink]="['/required-documents/']">Documents</a>
+          </li>
+          <li routerLinkActive="active">
+            <a [routerLink]="['/otpInput/']">OTP</a>
+          </li>
+        </ul>
+        <!-- <a routerLink="/adminhomepage/"><button class="btn btn-success pull-right" >Dashboard</button></a>
           <a routerLink="/userhomepage/"><button class="btn btn-success pull-right" >Profile</button></a> -->
-        </div>
-        <div id="name">{{name}}</div>
-        <button id="logoutbutton" nbButton status="danger" (click)="handleLogout()">Logout</button>
       </div>
-      
+      <div id="name">{{ name }}</div>
+      <button
+        id="logoutbutton"
+        nbButton
+        status="danger"
+        (click)="handleLogout()"
+      >
+        Logout
+      </button>
     </div>
-  </nb-layout-header>
+  </div>
+</nb-layout-header>

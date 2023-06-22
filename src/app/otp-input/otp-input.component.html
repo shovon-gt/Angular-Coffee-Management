@@ -1,0 +1,32 @@
+<nb-card class="card">
+  <nb-card-body>
+    <main class="main">
+      <div class="content">
+        <h4 class="heading">Verify Account</h4>
+        <p class="number">We have send the 6-digit OTP on +8801*******11</p>
+
+        <ng-otp-input
+          class="input"
+          (onInputChange)="onOtpChange($event)"
+          [config]="{ length: 6 }"
+        ></ng-otp-input>
+        <p class="expire-time">Expire in: <span class="time">2.59</span></p>
+        <p class="message">
+          if you didn't recieve a code! <button class="resend">Resend</button>
+        </p>
+        <p>
+          <button class="btn btn-primary" nbButton (click)="verify()">
+            Next
+          </button>
+        </p>
+      </div>
+      <div>
+        <img
+          class="image"
+          src="../../../assets/otpInput/otp.png"
+          alt="OTP Image"
+        />
+      </div>
+    </main>
+  </nb-card-body>
+</nb-card>
